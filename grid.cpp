@@ -30,6 +30,7 @@ void Grid::print()
         {
             cout << grid[row][column] << " ";
         }
+         cout << std::endl;
     }
-    cout << std::endl;
+   
 }
