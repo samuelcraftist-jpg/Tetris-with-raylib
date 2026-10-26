@@ -1,0 +1,25 @@
+
+# Compiled executables
+*.exe
+*.dll
+
+# Object and compiled files
+*.o
+*.obj
+*.a
+
+# Build directories
+build/
+cmake-build-*/
+
+# Debug symbols
+*.pdb
+
+# VS Code settings (optional)
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# OS-generated files
+Thumbs.db
+.DS_Store
