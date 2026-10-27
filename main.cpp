@@ -21,10 +21,16 @@ using std::cin; // same applies
 int main(){
 
     // initializes the game window
-    InitWindow(300, 400,"Tetris ");
+    InitWindow(350, 700,"Tetris ");
     SetTargetFPS(60); // setting up how fast my game should run
 
     Grid grid = Grid();
+
+    // blocks
+    grid.grid[0][0] = 1;
+    grid.grid[3][5] = 3;
+    
+
     grid.print();
 
     // My game loop
@@ -32,6 +38,9 @@ int main(){
     {
         BeginDrawing(); // begin drawing function draws the contents
         ClearBackground(BLACK);
+
+        grid.Draw();
+
         EndDrawing(); // ends the drawing
     }
     CloseWindow(); // closes the window cleanly or ends the program
