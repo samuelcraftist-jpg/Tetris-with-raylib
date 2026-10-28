@@ -19,6 +19,8 @@
                 "${workspaceFolder}/position.cpp",
                 "${workspaceFolder}/blocks.cpp",
                 "${workspaceFolder}/colors.cpp",
+                "${workspaceFolder}/game.cpp",
+                "${workspaceFolder}/audio.cpp",
                 
                 "-o",
                 "${workspaceFolder}/tetris.exe",

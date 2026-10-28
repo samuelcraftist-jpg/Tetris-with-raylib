@@ -1,47 +1,45 @@
-// learning raylib with this project
+﻿// learning raylib with this project
+//
+// Tetris: a grid (20 rows x 10 columns), falling tetrominoes, line clearing,
+// score, level, next-piece preview, game over and restart.
+//
+// Build with the VS Code "build" task (g++, C++17, raylib).
 
-/* 
-<---------------------------------------------------------------------------->
-NOTES: Tetris contains 20 rows and 10 columns.
-1. InItWindow(x, y, "A title parameter")
-2. SetTargetFPS() Function
-3. A while loop that keeps the window open till the while toop condition becomes true.
- !WindowshouldClose() makes the condition false. Once we lick close it becomes true then the game loop ends.
-<----------------------------------------------------------------------------->
-CODE:
-*/
-#include <raylib.h> // Main raylib header file ig
-#include "grid.hpp"
-#include "blocks.cpp"
+#include <raylib.h>
+#include "constants.hpp"
+#include "colors.hpp"
+#include "game.hpp"
 
-#include <iostream>
-
-using std::cout; // i used them directly because i dont wanna write std::cout thing everytime "-"
-using std::cin; // same applies
-
-int main(){
-
+int main()
+{
     // initializes the game window
-    InitWindow(350, 700,"Tetris ");
-    SetTargetFPS(60); // setting up how fast my game should run
+    InitWindow(WindowWidth, WindowHeight, "Tetris");
+    SetTargetFPS(60); // how fast the game runs (60 frames per second)
 
-    Grid grid = Grid();
-    
-    LBlock block = LBlock();
+    // audio must be initialized before sounds or music are loaded
+    InitAudioDevice();
 
-    grid.print();
-
-    // My game loop
-    while(!WindowShouldClose())
     {
-        BeginDrawing(); // begin drawing function draws the contents
-        ClearBackground(BLACK);
+        Game game;
+        game.InitAudio(); // load sound effects and music
 
-        grid.Draw();
-        block.Draw();
+        // my game loop
+        while (!WindowShouldClose())
+        {
+            game.HandleInput(); // player input
+            game.Update();      // automatic falling and locking
 
-        EndDrawing(); // ends the drawing
+            BeginDrawing(); // start drawing the frame
+            ClearBackground(abyss);
+            game.Draw();      // grid, pieces, panels, text
+            EndDrawing();     // show the frame
+        }
+
+        // game goes out of scope here: all sounds and music are unloaded
+        // before we close the audio device below
     }
-    CloseWindow(); // closes the window cleanly or ends the program
-    cout<<"Window has closed.";
+
+    CloseAudioDevice();
+    CloseWindow(); // closes the window cleanly
 }
+
