@@ -1,6 +1,7 @@
 
 #include "grid.hpp"
 #include <iostream>
+#include "colors.hpp"
 
 using std::cout;
 
@@ -35,20 +36,6 @@ void Grid::print()
         }
         cout << std::endl;
     }
-}
-
-std::vector<Color> Grid::getCellColors()
-{
-    return {
-        {11, 16, 38, 255},    // Abyss color for back ground
-        {255, 0, 0, 255},     // Red
-        {0, 0, 255, 255},     // Blue
-        {255, 255, 0, 255},   // Yellow
-        {255, 255, 255, 255}, // White
-        {0, 255, 0, 255},     // green
-        {128, 0, 128, 255},   // Purple
-        {255, 165, 0, 255}    // Orange
-    };
 }
 
 void Grid::Draw()

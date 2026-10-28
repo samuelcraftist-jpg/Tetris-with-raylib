@@ -15,6 +15,11 @@
                 "-IC:/msys64/ucrt64/include",
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/grid.cpp",
+                "${workspaceFolder}/block.cpp",
+                "${workspaceFolder}/position.cpp",
+                "${workspaceFolder}/blocks.cpp",
+                "${workspaceFolder}/colors.cpp",
+                
                 "-o",
                 "${workspaceFolder}/tetris.exe",
                 "-LC:/msys64/ucrt64/lib",

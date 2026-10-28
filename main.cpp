@@ -12,6 +12,7 @@ CODE:
 */
 #include <raylib.h> // Main raylib header file ig
 #include "grid.hpp"
+#include "blocks.cpp"
 
 #include <iostream>
 
@@ -25,11 +26,8 @@ int main(){
     SetTargetFPS(60); // setting up how fast my game should run
 
     Grid grid = Grid();
-
-    // blocks
-    grid.grid[0][0] = 1;
-    grid.grid[3][5] = 3;
     
+    LBlock block = LBlock();
 
     grid.print();
 
@@ -40,6 +38,7 @@ int main(){
         ClearBackground(BLACK);
 
         grid.Draw();
+        block.Draw();
 
         EndDrawing(); // ends the drawing
     }
